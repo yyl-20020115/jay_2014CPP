@@ -1,0 +1,65 @@
+JAY(1)                                                                  JAY(1)
+
+
+
+NAME
+       jay - an LALR(1) parser generator for Java and C#
+
+SYNOPSIS
+       jay  [ -tv ] [ -c ] [ -p ] [ -b file_prefix ] [ -V yyValue ] filename <
+       skeleton
+
+DESCRIPTION
+       Jay reads the grammar specification in the file filename and  generates
+       an  LR(1) parser for it.  The parsers consist of a set of LALR(1) pars-
+       ing tables and a driver routine from the file skeleton written  in  the
+       Java  programming language.  Jay writes the parse tables and the driver
+       routine to standard output.
+
+       The following options are available:
+
+              -b file_prefix
+                     The -b option changes the prefix prepended to the  output
+                     file  names  to  the  string denoted by file_prefix.  The
+                     default prefix is the character y.
+
+              -c     The -c option makes jay generate C# code instead  of  the
+                     default Java.
+
+              -t     The  -t  option  arranges for debugging information to be
+                     incorporated in the compiled code.
+
+              -v     The -v option causes a human-readable description of  the
+                     generated parser to be written to the file y.output.
+
+              -p     The  -p option causes jay to print the directory in which
+                     its sample skeleton files are installed.   If  a  project
+                     wants to use the default skeleton file included with jay,
+                     it can use this option in a makefile to find the path  to
+                     the  skeleton  or  skeleton.cs file included with the jay
+                     distribution.
+
+       If the environment variable TMPDIR is set, the string denoted by TMPDIR
+       will be used as the name of the directory where the temporary files are
+       created.
+
+FILES
+       skeleton
+       y.output
+       /tmp/yacc.aXXXXXX
+       /tmp/yacc.tXXXXXX
+       /tmp/yacc.uXXXXXX
+
+DIAGNOSTICS
+       If there are rules that are never reduced, the number of such rules  is
+       reported  on  standard  error.  If there are any LALR(1) conflicts, the
+       number of conflicts is reported on standard error.
+
+HISTORY
+       Jay is derived from Berkeley yacc .  Input conventions  closely  follow
+       those  of  yacc ; for details, consult the parser skeleton file and the
+       commented example included with the sources.
+
+
+
+4.3 Berkeley Distribution May 24, 1993 / July 8, 1998                   JAY(1)
